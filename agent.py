@@ -50,7 +50,9 @@ def get_llm():
             model=os.getenv("GOOGLE_MODEL", "gemini-3.1-flash-lite"),
             max_retries=3,
             temperature=0,
-            client_options=client_options_timeout,  
+            client_options={
+                "timeout": 120.0
+            }
         )
     # elif provider == "anthropic":
     #     from langchain_anthropic import ChatAnthropic
