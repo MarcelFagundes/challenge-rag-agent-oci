@@ -41,30 +41,29 @@ def get_llm():
 
     if provider == "gemini":
         from langchain_google_genai import ChatGoogleGenerativeAI
-        from google.api_core.client_options import ClientOptions
-      
-        client_options_timeout = ClientOptions(
-            api_endpoint = 120,
-        )
         return ChatGoogleGenerativeAI(
-            model=os.getenv("GOOGLE_MODEL", "gemini-3.1-flash-lite"),
-            max_retries=3,
+            model=os.getenv("GOOGLE_MODEL", "gemini-3.6-flash"),
+            google_api_key=os.getenv("GOOGLE_API_KEY"),
             temperature=0,
-            client_options={
-                "timeout": 120.0
-            }
+            timeout=120,  
+            max_retries=3,
         )
     # elif provider == "anthropic":
     #     from langchain_anthropic import ChatAnthropic
     #     return ChatAnthropic(
     #         model=os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-5"),
     #         temperature=0,
+    #         timeout=120,
+    #         max_retries=3,
+
     #     )
     # elif provider == "openai":
     #     from langchain_openai import ChatOpenAI
     #     return ChatOpenAI(
     #         model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
     #         temperature=0,
+    #         timeout=120,
+    #         max_retries=3,
     #     )
     else:
         raise ValueError(f"LLM_PROVIDER desconhecido: {provider}")
