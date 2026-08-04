@@ -41,9 +41,12 @@ def get_llm():
 
     if provider == "gemini":
         from langchain_google_genai import ChatGoogleGenerativeAI
+        client_options_timeout = {
+            "timeout": 120.0
+        }
         return ChatGoogleGenerativeAI(
             model=os.getenv("GOOGLE_MODEL", "gemini-3.1-flash-lite"),
-            client_options={"client_info": {"timeout": 120.0}}, 
+            client_options=client_options_timeout,
             temperature=0,
         )
     # elif provider == "anthropic":
