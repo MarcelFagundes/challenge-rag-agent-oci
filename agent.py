@@ -43,6 +43,7 @@ def get_llm():
         from langchain_google_genai import ChatGoogleGenerativeAI
         return ChatGoogleGenerativeAI(
             model=os.getenv("GOOGLE_MODEL", "gemini-3.1-flash-lite"),
+            client_options={"client_info": {"timeout": 120.0}}, 
             temperature=0,
         )
     # elif provider == "anthropic":
