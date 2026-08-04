@@ -41,6 +41,8 @@ def get_llm():
 
     if provider == "gemini":
         from langchain_google_genai import ChatGoogleGenerativeAI
+        from google.api_core.client_options import ClientOptions
+      
         client_options_timeout = ClientOptions(
             api_endpoint = None,
         )
