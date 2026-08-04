@@ -44,14 +44,13 @@ def get_llm():
         from google.api_core.client_options import ClientOptions
       
         client_options_timeout = ClientOptions(
-            api_endpoint = None,
+            api_endpoint = 120,
         )
         return ChatGoogleGenerativeAI(
             model=os.getenv("GOOGLE_MODEL", "gemini-3.1-flash-lite"),
-            client_options=client_options_timeout,
-            default_options={"timeout": 120.0},             
             max_retries=3,
             temperature=0,
+            client_options=client_options_timeout,  
         )
     # elif provider == "anthropic":
     #     from langchain_anthropic import ChatAnthropic
