@@ -223,7 +223,7 @@ GOOGLE_API_KEY = "AIzaSy...sua-chave"
 
 ### 7.4. Deploy
 Clique em **Deploy**. Em poucos minutos, o app estará disponível em uma URL
-pública do tipo `https://challenge-rag-agent-oci-kkhcmyeamai76mgf79tccm.streamlit.app`.
+pública do tipo **https://challenge-rag-agent-oci-kkhcmyeamai76mgf79tccm.streamlit.app/**
 
 > **Limitação:** o plano gratuito do Streamlit Cloud tem recursos limitados de
 > CPU/RAM, o que pode deixar a indexação do PDF (`sentence-transformers`) mais
@@ -231,7 +231,7 @@ pública do tipo `https://challenge-rag-agent-oci-kkhcmyeamai76mgf79tccm.streaml
 
 ---
 
-## 9. Estrutura do repositório
+## 8. Estrutura do repositório
 
 ```
 challenge-rag-agent-oci/
@@ -245,14 +245,14 @@ challenge-rag-agent-oci/
 └── README.md
 ```
 
-## 10. Trocando de LLM
+## 9. Trocando de LLM
 
 Basta alterar `LLM_PROVIDER` no `.env` para `anthropic`, `openai` ou `gemini` (e preencher a
 chave correspondente). O código em `agent.py` (`get_llm()`) já trata a troca de provedor sem
 precisar mudar mais nada. Se um modelo específico for descontinuado pelo provedor, ajuste
 apenas `ANTHROPIC_MODEL` / `OPENAI_MODEL` / `GOOGLE_MODEL` no `.env` (ver seção 5).
 
-## 11. Usando a documentação de outro banco/fintech
+## 10. Usando a documentação de outro banco/fintech
 
 Substitua `data/pagfacil_docs.pdf` pelo(s) documento(s) da instituição desejada — pode ser um
 único PDF combinando privacidade, termos, FAQ, segurança e tarifas (como neste projeto), ou
