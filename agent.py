@@ -45,26 +45,26 @@ def get_llm():
             model=os.getenv("GOOGLE_MODEL", "gemini-3.6-flash"),
             google_api_key=os.getenv("GOOGLE_API_KEY"),
             temperature=0,
-            timeout=120,  
+            timeout=120,
             max_retries=3,
         )
-    # elif provider == "anthropic":
-    #     from langchain_anthropic import ChatAnthropic
-    #     return ChatAnthropic(
-    #         model=os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-5"),
-    #         temperature=0,
-    #         timeout=120,
-    #         max_retries=3,
+    elif provider == "anthropic":
+        from langchain_anthropic import ChatAnthropic
+        return ChatAnthropic(
+            model=os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-6"),
+            temperature=0,
+            timeout=120,
+            max_retries=3,
 
-    #     )
-    # elif provider == "openai":
-    #     from langchain_openai import ChatOpenAI
-    #     return ChatOpenAI(
-    #         model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
-    #         temperature=0,
-    #         timeout=120,
-    #         max_retries=3,
-    #     )
+        )
+    elif provider == "openai":
+        from langchain_openai import ChatOpenAI
+        return ChatOpenAI(
+            model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+            temperature=0,
+            timeout=120,
+            max_retries=3,
+        )
     else:
         raise ValueError(f"LLM_PROVIDER desconhecido: {provider}")
 
